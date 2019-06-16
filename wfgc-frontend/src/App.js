@@ -4,6 +4,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { arcadesFetcher } from "./actions";
+import Login from "./components/Login";
 
 class App extends React.Component {
   constructor() {
@@ -24,23 +25,29 @@ class App extends React.Component {
   render() {
     console.log(this.state.arcades);
     return (
-      <div className="App">
-        <header>Links will go here</header>
+      <Router>
+        <div className="App">
+          <header>
+            Links will go here
+            <Link to="/login">Login</Link>
+          </header>
 
-        <p>React goes here</p>
-        <div className="arcades-list">
-          {this.props.arcades.map(arcade => (
-            <div key={arcade.id}>
-              <p>{arcade.arcadename}</p>
-              <p>{arcade.aracdestreet}</p>
-              <p>
-                {arcade.arcadetown}, {arcade.arcadestate}
-              </p>
-              <p>{arcade.arcadezipcode}</p>
-            </div>
-          ))}
+          <p>React goes here</p>
+          <div className="arcades-list">
+            {this.props.arcades.map(arcade => (
+              <div key={arcade.id}>
+                <p>{arcade.arcadename}</p>
+                <p>{arcade.aracdestreet}</p>
+                <p>
+                  {arcade.arcadetown}, {arcade.arcadestate}
+                </p>
+                <p>{arcade.arcadezipcode}</p>
+              </div>
+            ))}
+          </div>
+          <Route path="/login" component={Login} />
         </div>
-      </div>
+      </Router>
     );
   }
 }

@@ -16,3 +16,19 @@ export const arcadesFetcher = () => dispatch => {
       dispatch({ type: FETCHING_ARCADES_ERROR });
     });
 };
+
+export const LOGIN_START = "LOGIN_START";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_ERROR = "LOGIN_ERROR";
+
+export const admin = creds => dispatch => {
+  dispatch({ type: LOGIN_START });
+  return axios
+    .post("http://localhost:5000/api/auth/login", creds)
+    .then(res => {
+      console.log(res.data.token + "aaa");
+      localStorage.setItem("token", res.data.token);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
+    })
+    .catch(err => console.log(err));
+};
