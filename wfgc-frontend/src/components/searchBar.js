@@ -1,0 +1,84 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { arcadesFetcher } from "../actions";
+
+class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      arcade: [],
+      zipcode: "",
+      filteredArray: []
+    };
+  }
+  componentDidMount() {
+    this.props.arcadesFetcher();
+  }
+  componentDidUpdate() {
+    if (this.props.arcades !== this.state.arcade) {
+      this.setState({
+        ...this.state,
+        arcade: this.props.arcades
+      });
+    }
+    /*
+    if (this.fooPoo !== this.state.filteredArray) {
+      this.setState({
+        ...this.state,
+        filteredArray: this.fooPoo()
+      });
+    }
+*/
+  }
+
+  handleChange = e => {
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value
+    });
+  };
+  fooPoo = function() {
+    let truthyy = this.state.arcade.filter(arcad => {
+      return arcad.arcadezipcode == this.state.zipcode;
+    });
+    return truthyy;
+    console.log(this.state.zipcode);
+  };
+
+  render() {
+    return (
+      <div>
+        Enter Your Zip Code to display arcades near you:
+        <form>
+          <input
+            type="text"
+            name="zipcode"
+            value={this.state.zipcode}
+            onChange={this.handleChange}
+          />
+        </form>
+        {this.state.filteredArray.map(arcade => (
+          <div key={arcade.id}>
+            <p>{arcade.arcadename}</p>
+            <p>{arcade.aracdestreet}</p>
+            <p>
+              {arcade.arcadetown}, {arcade.arcadestate}
+            </p>
+            <p>{arcade.arcadezipcode}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = ({ arcades, fetching_arcades }) => ({
+  arcades,
+  fetching_arcades
+});
+
+export default connect(
+  mapStateToProps,
+  { arcadesFetcher }
+)(SearchBar);
