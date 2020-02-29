@@ -38,11 +38,17 @@ class SearchBar extends React.Component {
       [e.target.name]: e.target.value
     });
   };
-  fooPoo = function() {
+  fooPoo = function(event) {
+    event.preventDefault();
     let truthyy = this.state.arcade.filter(arcad => {
       return arcad.arcadezipcode == this.state.zipcode;
     });
-    return truthyy;
+    if (truthyy.length === 1) {
+      this.setState({
+        ...this.state,
+        filteredArray: truthyy
+      });
+    }
     console.log(this.state.zipcode);
   };
 
@@ -50,13 +56,14 @@ class SearchBar extends React.Component {
     return (
       <div>
         Enter Your Zip Code to display arcades near you:
-        <form>
+        <form onSubmit={event => this.fooPoo(event)}>
           <input
             type="text"
             name="zipcode"
             value={this.state.zipcode}
             onChange={this.handleChange}
           />
+          <button>Submit!</button>
         </form>
         {this.state.filteredArray.map(arcade => (
           <div key={arcade.id}>
