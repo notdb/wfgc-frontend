@@ -29,8 +29,8 @@ class Login extends React.Component {
   render() {
     return (
       <div className="Login">
-        <p>Login</p>
-        <form onSubmit={this.admin}>
+        {/*<p>Login</p>*/}
+        <form onSubmit={this.admin} className="loginForm">
           <input
             type="text"
             name="username"

@@ -38,12 +38,13 @@ class SearchBar extends React.Component {
       [e.target.name]: e.target.value
     });
   };
+
   fooPoo = function(event) {
     event.preventDefault();
     let truthyy = this.state.arcade.filter(arcad => {
       return arcad.arcadezipcode == this.state.zipcode;
     });
-    if (truthyy.length === 1) {
+    if (truthyy.length !== 0) {
       this.setState({
         ...this.state,
         filteredArray: truthyy
@@ -54,27 +55,31 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div>
-        Enter Your Zip Code to display arcades near you:
-        <form onSubmit={event => this.fooPoo(event)}>
-          <input
-            type="text"
-            name="zipcode"
-            value={this.state.zipcode}
-            onChange={this.handleChange}
-          />
-          <button>Submit!</button>
-        </form>
-        {this.state.filteredArray.map(arcade => (
-          <div key={arcade.id}>
-            <p>{arcade.arcadename}</p>
-            <p>{arcade.aracdestreet}</p>
-            <p>
-              {arcade.arcadetown}, {arcade.arcadestate}
-            </p>
-            <p>{arcade.arcadezipcode}</p>
-          </div>
-        ))}
+      <div className="searchBar">
+        <div className="searchForm">
+          Enter Your Zip Code to display arcades near you:
+          <form onSubmit={event => this.fooPoo(event)}>
+            <input
+              type="text"
+              name="zipcode"
+              value={this.state.zipcode}
+              onChange={this.handleChange}
+            />
+            <button>Submit!</button>
+          </form>
+        </div>
+        <div className="searchResults">
+          {this.state.filteredArray.map(arcade => (
+            <div key={arcade.id}>
+              <p>{arcade.arcadename}</p>
+              <p>{arcade.aracdestreet}</p>
+              <p>
+                {arcade.arcadetown}, {arcade.arcadestate}
+              </p>
+              <p>{arcade.arcadezipcode}</p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

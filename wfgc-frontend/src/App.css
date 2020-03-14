@@ -56,3 +56,30 @@ header ul {
     width: 65%;
     background: teal;
 }
+
+.searchBar {
+    height: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.searchForm {
+    width: 25%;
+}
+
+.loginForm {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Login {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 25em;
+    justify-content: space-evenly;
+}

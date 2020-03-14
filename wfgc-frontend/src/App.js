@@ -12,6 +12,7 @@ import { arcadesFetcher } from "./actions";
 import ListOfArcades from "./components/listOfArcades";
 import Login from "./components/Login";
 import SearchBar from "./components/searchBar";
+import GoogMaps from "./components/googMaps";
 
 class App extends React.Component {
   constructor() {
@@ -40,9 +41,12 @@ class App extends React.Component {
           <SearchBar />
           <section className="bodyThing">
             <ListOfArcades className="one" />
+            {/*
             <div className="two">
               <p>Google maps goes here </p>
             </div>
+	     */}
+            <GoogMaps className="two" />
           </section>
           {/*
           <div className="arcades-list">
