@@ -5,30 +5,44 @@ import { GoogleApiWrapper, Map, InfoWindow, Marker } from "google-maps-react";
 export class GoogMaps extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { lat: "", long: "" };
   }
 
   geoTester = () => {
     const geocoder = new this.props.google.maps.Geocoder();
-    let cb = (testArray, bigStatus) => {
-      console.log(testArray[0].geometry.bounds.Ta.g);
-      console.log(testArray[0].geometry.bounds.Ya.g);
-      console.log(bigStatus);
-
-      /*
+    let poo = "";
+    let cb = (testy, bigStatus) => {
+      //console.log(testy);
+      /* fake return
       return (
         this.props.google.maps.GeocoderResult,
-        this.props.google.maps.GeocoderStatus
+        this.props.google.maps.GeocoderStatus,
+        testy[0].geometry.viewport.Ta.g,
+        testy[0].geometry.viewport.Ya.g
       );
-*/
+      */
+      console.log("SEACH", testy[0].geometry.viewport.Ta.g);
+      this.setState({
+        ...this.state,
+        lat: testy[0].geometry.viewport.Ta.g,
+        long: testy[0].geometry.viewport.Ya.g
+      });
+      console.log(this.state);
+      return "foo";
     };
-    geocoder.geocode({ address: "16803" }, cb);
+    geocoder.geocode({ address: `${this.props.zipcode}` }, cb);
   };
+  componentDidUpdate() {
+    if (this.state.lat) {
+      this.props.latLng({ lat: this.state.lat, long: this.state.long });
+    }
+  }
 
   render() {
     return (
       <div className="gMapsTest">
-        {this.geoTester()}
+        <button onClick={this.geoTester}>Test</button>
+        {/*
         <Map
           google={this.props.google}
           initialCenter={{
@@ -38,6 +52,7 @@ export class GoogMaps extends React.Component {
           zoom={15}
           onClick={this.onMapClicked}
         />
+	     */}
       </div>
     );
   }

@@ -11,7 +11,7 @@ import { connect } from "react-redux";
 import { arcadesFetcher } from "./actions";
 import ListOfArcades from "./components/listOfArcades";
 import Login from "./components/Login";
-import SearchBar from "./components/searchBar";
+import SearchBar, { reConnect } from "./components/searchBar";
 import GoogMaps from "./components/googMaps";
 
 class App extends React.Component {
@@ -19,15 +19,19 @@ class App extends React.Component {
     super();
     this.state = {};
   }
-  /*
+
   componentDidMount() {
+    /*
     this.props.arcadesFetcher();
     this.setState({
       arcades: this.props.arcades
     });
+	*/
   }
-*/
+
+  testFunction = () => {};
   render() {
+    this.testFunction();
     return (
       <Router>
         <div className="App">
@@ -38,7 +42,6 @@ class App extends React.Component {
               <Route exact path="/login" component={Login} />
             </ul>
           </header>
-          <SearchBar />
           <section className="bodyThing">
             <ListOfArcades className="one" />
             {/*
@@ -46,7 +49,7 @@ class App extends React.Component {
               <p>Google maps goes here </p>
             </div>
 	     */}
-            <GoogMaps className="two" />
+            <SearchBar className="two" />
           </section>
           {/*
           <div className="arcades-list">

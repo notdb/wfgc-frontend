@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { arcadesFetcher } from "../actions";
+import GoogMaps from "./googMaps";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class SearchBar extends React.Component {
     this.state = {
       arcade: [],
       zipcode: "",
-      filteredArray: []
+      filteredArray: [],
+      latLng: ""
     };
   }
   componentDidMount() {
@@ -29,7 +31,7 @@ class SearchBar extends React.Component {
         filteredArray: this.fooPoo()
       });
     }
-*/
+    */
   }
 
   handleChange = e => {
@@ -41,6 +43,7 @@ class SearchBar extends React.Component {
 
   fooPoo = function(event) {
     event.preventDefault();
+
     let truthyy = this.state.arcade.filter(arcad => {
       return arcad.arcadezipcode == this.state.zipcode;
     });
@@ -51,6 +54,25 @@ class SearchBar extends React.Component {
       });
     }
     console.log(this.state.zipcode);
+    console.log("FFFFFF");
+    console.log(this.props);
+    console.log(this.state);
+    //this.geoTester();
+  };
+
+  passIt = poo3 => {
+    console.log("GOOG MAPS", poo3);
+    console.log(this.state.latLng);
+    if (this.state.latLng) {
+      console.log("TEST", this.state);
+      if (this.state.latLng.lat !== poo3.lat) {
+        this.setState({ ...this.state, latLng: poo3 });
+      }
+    } else {
+      console.log("poo");
+      this.setState({ ...this.state, latLng: poo3 });
+    }
+    return poo3;
   };
 
   render() {
@@ -80,6 +102,7 @@ class SearchBar extends React.Component {
             </div>
           ))}
         </div>
+        <GoogMaps zipcode={this.state.zipcode} latLng={this.passIt} />
       </div>
     );
   }
