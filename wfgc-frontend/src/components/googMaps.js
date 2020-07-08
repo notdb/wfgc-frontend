@@ -11,6 +11,7 @@ export class GoogMaps extends React.Component {
   geoTester = () => {
     const geocoder = new this.props.google.maps.Geocoder();
     let poo = "";
+
     let cb = (testy, bigStatus) => {
       //console.log(testy);
       /* fake return

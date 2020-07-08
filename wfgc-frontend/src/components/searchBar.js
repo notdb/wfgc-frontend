@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { arcadesFetcher } from "../actions";
 import GoogMaps from "./googMaps";
+import { Loader } from "@googlemaps/js-api-loader";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -16,6 +17,12 @@ class SearchBar extends React.Component {
   }
   componentDidMount() {
     this.props.arcadesFetcher();
+    const loader = new Loader({
+      apiKey: "AIzaSyA8-WP_2PHVxSEDzBrYoHE71ttdgWQ0_XY",
+      version: "weekly",
+      libraries: []
+    });
+    loader.load();
   }
   componentDidUpdate() {
     if (this.props.arcades !== this.state.arcade) {
@@ -32,7 +39,83 @@ class SearchBar extends React.Component {
       });
     }
     */
+    console.log(this.state);
   }
+
+  dmTest = () => {
+    const distanceThang = new window.google.maps.DistanceMatrixService();
+
+    let cb = (response, status) => {
+      if (status == "OK") {
+        console.log(response);
+        this.setState({
+          ...this.state,
+          bigResponse: response
+        });
+        let arcadesTwo = this.state.arcade.map((arcade, index) => ({
+          ...arcade,
+          distance: this.state.bigResponse.rows[0].elements[index].distance
+            .text,
+          value: this.state.bigResponse.rows[0].elements[index].distance.value
+        }));
+        arcadesTwo.sort((a, b) => a.value - b.value);
+        this.setState({
+          ...this.state,
+          arcadesTwo: arcadesTwo
+        });
+      }
+    };
+    const newDistances = this.state.arcade.map(arc => ({
+      lat: arc.lat,
+      lng: arc.long
+    }));
+    console.log(newDistances);
+    /* { lat: 33.73, lng: -117.87 } */
+    console.log(this.state.latLng);
+    distanceThang.getDistanceMatrix(
+      {
+        origins: [this.state.latLng],
+        destinations: newDistances,
+        travelMode: "DRIVING"
+      },
+      cb
+    );
+  };
+
+  initMap = () => {
+    const geoCoder = new window.google.maps.Geocoder();
+    /*
+    let weirdVar;
+    let testet;
+*/
+    let cb = (testy, bigStatus) => {
+      if (bigStatus == "OK") {
+        this.setState({
+          ...this.state,
+          latLng: {
+            lat: testy[0].geometry.bounds.Ya.i,
+            long: testy[0].geometry.bounds.Ua.i
+          }
+        });
+        /*
+        weirdVar = "okay";
+        testet = testy;
+	*/
+      }
+    };
+
+    geoCoder.geocode({ address: this.state.zipcode }, cb);
+    /*
+    let testPromise = new Promise((resolve, reject) => {
+      if (weirdVar == "okay") {
+        console.log(testet);
+        resolve("done");
+      }
+    });
+
+    testPromise.then(foo => console.log(foo));
+*/
+  };
 
   handleChange = e => {
     this.setState({
@@ -43,21 +126,73 @@ class SearchBar extends React.Component {
 
   fooPoo = function(event) {
     event.preventDefault();
-
-    let truthyy = this.state.arcade.filter(arcad => {
-      return arcad.arcadezipcode == this.state.zipcode;
+    let testPromiseBaby = new Promise((resolve, reject) => {
+      const geoCoder = new window.google.maps.Geocoder();
+      let cb = (testy, bigStatus) => {
+        if (bigStatus == "OK") {
+          console.log(testy);
+          this.setState({
+            ...this.state,
+            latLng: {
+              lat: testy[0].geometry.bounds.Za.i,
+              lng: testy[0].geometry.bounds.Ua.i
+            }
+          });
+          resolve();
+        }
+      };
+      geoCoder.geocode({ address: this.state.zipcode }, cb);
+      /*
+      if (this.state.latLng.length !== 0) {
+        resolve();
+      } else {
+,,        reject(Error("not loaded"));
+      }
+*/
     });
+    testPromiseBaby.then(this.dmTest);
+    /*
+    let somethingSomething = [];
+    let truthyy = () => {
+      let bigFilter = this.state.arcade.filter(arcad => {
+        const tempObject = { lat: arcad.lat, long: arcad.long };
+        //console.log(tempObject);
+        console.log(this.state.latLng);
+        let tempArray = Object.values(tempObject);
+        let stateArray = Object.values(this.state.latLng);
+
+        let y = 0;
+        for (let i = 0; i < tempArray.length; i++) {
+          //console.log(tempArray[i]);
+          //console.log(stateArray[i]);
+          if (tempArray[i] == stateArray[i]) {
+            y++;
+          }
+        }
+
+        //console.log(y);
+        return arcad.arcadezipcode == this.state.zipcode;
+      });
+
+      somethingSomething = bigFilter;
+      this.setState({
+        ...this.state,
+        filteredArray: bigFilter
+      });
+    };
+    truthyy();
+    console.log(somethingSomething);
     if (truthyy.length !== 0) {
       this.setState({
         ...this.state,
         filteredArray: truthyy
       });
     }
+*/
     console.log(this.state.zipcode);
     console.log("FFFFFF");
-    console.log(this.props);
     console.log(this.state);
-    //this.geoTester();
+    this.setState({ ...this.state, zipcode: "" });
   };
 
   passIt = poo3 => {
@@ -101,8 +236,23 @@ class SearchBar extends React.Component {
               <p>{arcade.arcadezipcode}</p>
             </div>
           ))}
+          {this.state.arcadesTwo ? (
+            this.state.arcadesTwo.map(arcade => (
+              <div key={arcade.id}>
+                <p>{arcade.arcadename}</p>
+                <p>{arcade.arcadestreet}</p>
+                <p>
+                  {arcade.arcadetown}, {arcade.arcadestate}{" "}
+                  {arcade.arcadezipcode}
+                </p>
+                <p>{arcade.distance}</p>
+              </div>
+            ))
+          ) : (
+            <p />
+          )}
         </div>
-        <GoogMaps zipcode={this.state.zipcode} latLng={this.passIt} />
+        {/*<GoogMaps zipcode={this.state.zipcode} latLng={this.passIt} />*/}
       </div>
     );
   }

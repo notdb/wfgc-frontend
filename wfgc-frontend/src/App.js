@@ -26,7 +26,15 @@ class App extends React.Component {
     this.setState({
       arcades: this.props.arcades
     });
-	*/
+    */
+    /*
+    const script = document.createElement("script");
+    script.src =
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyA8-WP_2PHVxSEDzBrYoHE71ttdgWQ0_XY";
+    script.async = true;
+
+    window.document.body.appendChild(script);
+*/
   }
 
   testFunction = () => {};
