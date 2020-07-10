@@ -34,7 +34,7 @@ class App extends React.Component {
     script.async = true;
 
     window.document.body.appendChild(script);
-*/
+    */
   }
 
   testFunction = () => {};

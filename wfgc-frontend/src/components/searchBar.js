@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
   componentDidMount() {
     this.props.arcadesFetcher();
     const loader = new Loader({
-      apiKey: "AIzaSyA8-WP_2PHVxSEDzBrYoHE71ttdgWQ0_XY",
+      apiKey: process.env.REACT_APP_GMAPS_API_KEY,
       version: "weekly",
       libraries: []
     });
@@ -134,8 +134,8 @@ class SearchBar extends React.Component {
           this.setState({
             ...this.state,
             latLng: {
-              lat: testy[0].geometry.bounds.Za.i,
-              lng: testy[0].geometry.bounds.Ua.i
+              lat: testy[0].geometry.viewport.Za.i,
+              lng: testy[0].geometry.viewport.Ua.i
             }
           });
           resolve();
@@ -227,7 +227,7 @@ class SearchBar extends React.Component {
         </div>
         <div className="searchResults">
           {this.state.filteredArray.map(arcade => (
-            <div key={arcade.id}>
+            <div key={arcade.id} className="mapResult">
               <p>{arcade.arcadename}</p>
               <p>{arcade.aracdestreet}</p>
               <p>
@@ -238,7 +238,7 @@ class SearchBar extends React.Component {
           ))}
           {this.state.arcadesTwo ? (
             this.state.arcadesTwo.map(arcade => (
-              <div key={arcade.id}>
+              <div key={arcade.id} className="mapResult">
                 <p>{arcade.arcadename}</p>
                 <p>{arcade.arcadestreet}</p>
                 <p>

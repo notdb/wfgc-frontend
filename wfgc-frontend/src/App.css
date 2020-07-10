@@ -58,22 +58,30 @@ header ul {
 }
 
 .searchBar {
-    height: 155px;
+    //height: 155px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    //align-items: center;
+    justify-content: flex-start;
     width: 85%;
     margin: 0 auto;
 }
 
 .searchForm {
     width: 25%;
+    margin-left: 5em;
+    margin-right: 5em;
 }
 
 .loginForm {
     width: 100%;
     display: flex;
     justify-content: space-around;
+}
+
+.mapResult {
+    margin-top: -1em;
+    margin-bottom: 2em;
+
 }
 
 .Login {
