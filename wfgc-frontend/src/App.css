@@ -48,8 +48,9 @@ header ul {
 }
 
 .arcades-list {
-    width: 25%;
+    width: 21%;
     background: purple;
+    padding-top: 1em;
 }
 
 .two {
@@ -66,10 +67,17 @@ header ul {
     margin: 0 auto;
 }
 
+.searchResults {
+    background: purple;
+    padding-top: 1em;
+    width: 24.70%;
+}
+
 .searchForm {
     width: 25%;
     margin-left: 5em;
     margin-right: 5em;
+    
 }
 
 .loginForm {
@@ -78,9 +86,10 @@ header ul {
     justify-content: space-around;
 }
 
-.mapResult {
-    margin-top: -1em;
+.arcadeCard {
+    margin-top: 1em;
     margin-bottom: 2em;
+    border-style: solid;
 
 }
 

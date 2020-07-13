@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { connect } from "react-redux";
 import { arcadesFetcher } from "../actions";
+import ArcadeCard from "./ArcadeCard";
 
 class ListOfArcades extends React.Component {
   constructor(props) {
@@ -42,6 +43,9 @@ class ListOfArcades extends React.Component {
             </p>
             <p>{arcade.arcadezipcode}</p>
           </div>
+        ))}
+        {this.state.arcad.map(arcade => (
+          <ArcadeCard arcade={arcade} />
         ))}
       </div>
     );

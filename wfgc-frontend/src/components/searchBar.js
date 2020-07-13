@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { arcadesFetcher } from "../actions";
 import GoogMaps from "./googMaps";
 import { Loader } from "@googlemaps/js-api-loader";
+import ArcadeCard from "./ArcadeCard";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -226,6 +227,7 @@ class SearchBar extends React.Component {
           </form>
         </div>
         <div className="searchResults">
+          <div>Your nearest weeklies:</div>
           {this.state.filteredArray.map(arcade => (
             <div key={arcade.id} className="mapResult">
               <p>{arcade.arcadename}</p>
@@ -238,6 +240,7 @@ class SearchBar extends React.Component {
           ))}
           {this.state.arcadesTwo ? (
             this.state.arcadesTwo.map(arcade => (
+              /*
               <div key={arcade.id} className="mapResult">
                 <p>{arcade.arcadename}</p>
                 <p>{arcade.arcadestreet}</p>
@@ -247,6 +250,8 @@ class SearchBar extends React.Component {
                 </p>
                 <p>{arcade.distance}</p>
               </div>
+		  */
+              <ArcadeCard arcade={arcade} />
             ))
           ) : (
             <p />
