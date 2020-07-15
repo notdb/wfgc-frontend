@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 todo.org
+/cypress/integration/examples
 
 # testing
 /coverage
