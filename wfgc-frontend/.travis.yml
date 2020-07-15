@@ -11,6 +11,11 @@ addons:
     packages:
     - libgconf-2-4
 
+branches:
+  only:
+  - gh-pages
+  - /.*/
+
 cache:
   # cache both npm modules and Cypress binary
   directories:
