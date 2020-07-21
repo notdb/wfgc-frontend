@@ -34,6 +34,7 @@ class ListOfArcades extends React.Component {
     return (
       <div className="arcades-list">
         List of top Arcades:
+        {/*
         {this.state.arcad.map(arcade => (
           <div key={arcade.id}>
             <p>{arcade.arcadename}</p>
@@ -44,6 +45,7 @@ class ListOfArcades extends React.Component {
             <p>{arcade.arcadezipcode}</p>
           </div>
         ))}
+	 */}
         {this.state.arcad.map(arcade => (
           <ArcadeCard arcade={arcade} />
         ))}
