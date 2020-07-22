@@ -5,6 +5,6 @@ describe("Visits homepage", () => {
     cy.visit('/');
   })
   it("Arcades-list has the list of arcades", ()=>{
-    cy.get(".arcades-list").contains("List of top Arcades");
+    cy.get(".arcades-list", {timeout: 10000}).contains("List of top Arcades");
   })
 });
