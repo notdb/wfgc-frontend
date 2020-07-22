@@ -11,6 +11,9 @@ addons:
     packages:
     - libgconf-2-4
 
+env:
+  - PORT = 4550;
+
 branches:
   only:
   - gh-pages
