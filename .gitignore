@@ -6,6 +6,7 @@
 .pnp.js
 todo.org
 /cypress/integration/examples/
+/cypress/videos/
 
 # testing
 /coverage
