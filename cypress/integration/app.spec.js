@@ -5,6 +5,6 @@ describe("Visits homepage", () => {
     cy.visit('/');
   })
   it("Arcades-list has the list of arcades", ()=>{
-    console.log(cy.get(".searchForm", {timeout: 4000}))
+    cy.get(".searchForm", {timeout: 4000})
   })
 });
