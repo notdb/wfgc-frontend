@@ -2,12 +2,7 @@
 
 describe("Visits homepage", () => {
   beforeEach(()=> {
-    cy.visit('/', {timeout: 30000})
-    /*
-    {onload: ()=>{
-      console.log('hi')
-    }}
-    */
+    cy.visit('/')
   })
   describe('Soemthing', ()=>{
   it("Arcades-list has the list of arcades", ()=>{
