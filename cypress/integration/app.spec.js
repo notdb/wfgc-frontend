@@ -6,7 +6,7 @@ describe("Visits homepage", () => {
   })
   describe('Soemthing', ()=>{
   it("Arcades-list has the list of arcades", ()=>{
-    cy.get(".searchForm", {timeout: 40000})
+    cy.get(".searchForm")
   })
   });
 });
