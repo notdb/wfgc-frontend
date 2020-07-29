@@ -17,8 +17,7 @@ addons:
   chrome: stable
 
 env:
-  - HOST=localhost
-  - PORT=4550
+  - HOST=localhost PORT=4550
 
 services:
   - xvfb
