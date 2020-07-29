@@ -2,7 +2,7 @@
 
 describe("Visits homepage", () => {
   beforeEach(()=> {
-    cy.visit('http://localhost/', {timeout: 30000})
+    cy.visit('http://localhost:4550', {timeout: 30000})
     /*
     {onload: ()=>{
       console.log('hi')
