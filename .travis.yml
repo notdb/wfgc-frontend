@@ -13,6 +13,9 @@ addons:
     - libgconf-2-4
   chrome: stable
 
+env:
+  - HOST=10.0.0.2
+  - PORT=4550
 
 services:
   - xvfb
