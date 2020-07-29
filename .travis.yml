@@ -12,8 +12,7 @@ addons:
     packages:
     - libgconf-2-4
   chrome: stable
-env:
-  - PORT = 4550;
+
 
 services:
   - xvfb
