@@ -1,8 +1,10 @@
 //import ListOfArcades from "../../src/components/listOfArcades.js";
 
-context("Visits homepage", () => {
+describe("Visits homepage", () => {
   beforeEach((done)=>{
-    cy.visit('http://localhost:4550/');
+    cy.visit('http://localhost:4550/', {onload: ()=>{
+      console.log('hi')
+    }})
     console.log(done);
   })
   describe('Soemthing', ()=>{
