@@ -18,7 +18,7 @@ services:
   - xvfb
 
 before_install:
-  - google-chrome-stable --headless --disable-gpu
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=4550 http://localhost &
 
 branches:
   only:
