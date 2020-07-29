@@ -4,7 +4,7 @@ describe("Visits homepage", () => {
   beforeEach(()=> {
     cy.visit('/')
   })
-  describe('Something', ()=>{
+  describe('Somethng', ()=>{
   it("Arcades-list has the list of arcades", ()=>{
     cy.get(".searchForm")
   })
