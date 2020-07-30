@@ -1,52 +1,40 @@
 language: node_js
-
 os:
-  - linux
-
+- linux
 node_js:
-  # Node 10.3+ includes npm@6 which has good "npm ci" command
-  - 10.8
-
+- 10.8
 dist: xenial
-# if using Ubuntu 16 need this library
-# https://github.com/cypress-io/cypress-documentation/pull/1647
 addons:
   apt:
     packages:
     - libgconf-2-4
   chrome: stable
-
 env:
+  matrix:
   - HOST=localhost PORT=4550
-
+  global:
+    secure: Xw7VT0UExPvqSeUeX1DuusYjem8/A8HPCO37dJ/Gv9kMhhy4s6baXPqrOR+nS2ToBkonBi+8951JNv8q3s+bhEYd5eIaCjsJ/sS5Iz8Ub4H/zDZidwQk2fuV1x/Z3CED0RDi/ibLQbR28xzso/NG6yQqZFoVIRqGi2psreU81nY1fyk+ne3wJCtMwKmNurGcyIXuJ+NAjCp3h9WWUvjFaAr/T0xOb7bfeEcxd76j4ChcVV8Jmfv8t6Gh5dC0OhxvTyCeUmtcY1v1SbJdn5YMQWTx64D2gBD/1tqv0gWJKLiaBk6qeMHLwc195TcCFAT/UpZnDz/+dFlOMJK+nmJm3rxJzBWK8K7c4DAcUNj0jVQWELEuHxDh5KT4/pU6cTtnfOXpMiD711/fjYHSdrVn/nAlEm0Nd1u5eIdTW21Qz4f3heZ2M1Q8/eDPkjYHE8cCZSLbtrmspjfG5em8ij1uBiP6zVKbgLRaeBlM500UUg6PSbigRU9lXn02i5/91ATuTlJoex8dVw4hqMk8PWv2s3z/HctC55yfgOg8+sTMFnX1+RNPvZx7SnF+DI4XMqOX3/FkinvSHhSZiogSaeRxuTiw+gTH48zpVk/PZBYzkK+hAdjVU5/JKf1GbRo3nye5DpKf6+EEPd46wiis5WwM+7sNBDhgYuvRkhFOzZiGvVI=
 services:
-  - xvfb
-
+- xvfb
 before_install:
-  - google-chrome-stable --headless --disable-gpu
-
+- google-chrome-stable --headless --disable-gpu
 branches:
   only:
   - gh-pages
-  - /.*/
-
+  - "/.*/"
 cache:
-  # cache both npm modules and Cypress binary
   directories:
-    - ~/.npm
-    - ~/.cache
+  - "~/.npm"
+  - "~/.cache"
   override:
-    - npm ci
-    - npm run cy:verify
-    - npm run cy:info
-install:
   - npm ci
-defaults: &defaults
+  - npm run cy:verify
+  - npm run cy:info
+install:
+- npm ci
+defaults:
   script:
-    #   ## print all Travis environment variables for debugging
-    - $(npm bin)/print-env TRAVIS
-    - npm run start:ci &
-    - npm run cy:run
-    # after all tests finish running we need
-    # to kill all background jobs (like "npm start &")
-    - kill $(jobs -p) || true
+  - "$(npm bin)/print-env TRAVIS"
+  - npm run start:ci &
+  - npm run cy:run
+  - kill $(jobs -p) || true
