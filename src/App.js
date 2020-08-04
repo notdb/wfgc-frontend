@@ -13,6 +13,7 @@ import ListOfArcades from "./components/listOfArcades";
 import Login from "./components/Login";
 import SearchBar, { reConnect } from "./components/searchBar";
 import GoogMaps from "./components/googMaps";
+import Home from "./components/Home";
 
 class App extends React.Component {
   constructor() {
@@ -47,9 +48,11 @@ class App extends React.Component {
             <ul>
               <NavLink to="/">Home</NavLink>
               <NavLink to="/login">Login</NavLink>
-              <Route exact path="/login" component={Login} />
             </ul>
           </header>
+          <Route path="/login" component={Login} />
+          <Route exact path="/" component={Home} />
+          {/*
           <section className="bodyThing">
             <ListOfArcades className="one" />
             {/*
@@ -57,9 +60,10 @@ class App extends React.Component {
               <p>Google maps goes here </p>
             </div>
 	     */}
+          {/*
             <SearchBar className="two" />
           </section>
-          {/*
+          
           <div className="arcades-list">
             {this.props.arcades.map(arcade => (
               <div key={arcade.id}>

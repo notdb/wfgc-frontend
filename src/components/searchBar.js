@@ -136,7 +136,7 @@ class SearchBar extends React.Component {
             ...this.state,
             latLng: {
               lat: testy[0].geometry.viewport.Za.i,
-              lng: testy[0].geometry.viewport.Ua.i
+              lng: testy[0].geometry.viewport.Va.i
             }
           });
           resolve();
