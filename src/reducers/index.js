@@ -4,13 +4,17 @@ import {
   FETCHING_ARCADES_ERROR,
   LOGIN_START,
   LOGIN_SUCCESS,
-  LOGIN_ERROR
+  LOGIN_ERROR,
+  REG_START,
+  REG_SUCCESS,
+  REG_ERROR
 } from "../actions";
 
 const initialState = {
   arcades: [],
   fetching_arcades: false,
-  isLoggedIn: false
+  isLoggedIn: false,
+  isRegistered: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -43,6 +47,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoggedIn: false,
+        error: ""
+      };
+    case REG_START:
+      return {
+        ...state,
+        isRegistered: true,
+        error: ""
+      };
+    case REG_SUCCESS:
+      return {
+        ...state,
+        isRegistered: false,
         error: ""
       };
     default:

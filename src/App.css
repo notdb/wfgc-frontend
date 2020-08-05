@@ -63,7 +63,7 @@ header ul {
     display: flex;
     //align-items: center;
     justify-content: flex-start;
-    width: 85%;
+    width: 56%;
     margin: 0 auto;
 }
 
@@ -81,9 +81,11 @@ header ul {
 }
 
 .loginForm {
+    /*
     width: 100%;
     display: flex;
     justify-content: space-around;
+    */
 }
 
 .arcadeCard {
@@ -99,4 +101,5 @@ header ul {
     align-items: center;
     width: 25em;
     justify-content: space-evenly;
+    margin: 0 auto;
 }

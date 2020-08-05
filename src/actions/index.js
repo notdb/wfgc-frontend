@@ -32,3 +32,18 @@ export const admin = creds => dispatch => {
     })
     .catch(err => console.log(err));
 };
+
+export const REG_START = "REG_START";
+export const REG_SUCCESS = "REG_SUCCESS";
+export const REG_ERROR = "REG_ERROR";
+
+export const regStart = creds => dispatch => {
+  dispatch({ type: REG_START });
+  return axios
+    .post("http://localhost:5000/api/auth/register", creds)
+    .then(res => {
+      console.log(res.data.token + "bbb");
+      dispatch({ type: REG_SUCCESS, payload: res.data.token });
+    })
+    .catch(err => console.log(err));
+};
