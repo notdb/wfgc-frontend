@@ -46,7 +46,7 @@ class App extends React.Component {
         <div className="App">
           <header>
             <ul>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/">Where's FGC</NavLink>
               <NavLink to="/login">Login</NavLink>
             </ul>
           </header>

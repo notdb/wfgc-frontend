@@ -44,6 +44,26 @@ class Login extends React.Component {
   render() {
     return (
       <div className="Login">
+        <section className="registrationCard">
+          <p>Register Here</p>
+          <form onSubmit={this.regStart} className="registrationForm">
+            <input
+              type="text"
+              name="username1"
+              value={this.state.registration.username1}
+              onChange={this.handleChanges}
+              className="form"
+            />
+            <input
+              type="password"
+              name="password1"
+              value={this.state.registration.password1}
+              onChange={this.handleChanges}
+              className="form2"
+            />
+            <button className="registrationButton">Registration</button>
+          </form>
+        </section>
         <section className="loginCard">
           <p>Login</p>
           <form onSubmit={this.admin} className="loginForm">
@@ -62,26 +82,6 @@ class Login extends React.Component {
               className="form2"
             />
             <button className="loginButton">Login</button>
-          </form>
-        </section>
-        <section className="registrationCard">
-          <p>Registration</p>
-          <form onSubmit={this.regStart} className="registrationForm">
-            <input
-              type="text"
-              name="username1"
-              value={this.state.registration.username1}
-              onChange={this.handleChanges}
-              className="form"
-            />
-            <input
-              type="password"
-              name="password1"
-              value={this.state.registration.password1}
-              onChange={this.handleChanges}
-              className="form2"
-            />
-            <button className="registrationButton">Registration</button>
           </form>
         </section>
       </div>

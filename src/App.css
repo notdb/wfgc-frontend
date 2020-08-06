@@ -1,3 +1,8 @@
+body {
+    background:;
+
+}
+
 .App {
     text-align: center;
     width: 95%;
@@ -35,10 +40,11 @@
 }
 
 header ul {
-    height: 100px;
+    height: 45px;
     display:flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    padding-left: 0px;
 }
 
 .bodyThing {
@@ -99,7 +105,24 @@ header ul {
     height: 100%;
     display: flex;
     align-items: center;
-    width: 25em;
+    width: 60em;
     justify-content: space-evenly;
     margin: 0 auto;
 }
+
+.registrationCard {
+    background: yellow;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+    width: 24%;
+}
+
+.loginCard {
+    background: lightyellow;
+    display:flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+    width: 20%;
+}
+
