@@ -5,7 +5,6 @@ import { arcadesFetcher } from "../actions";
 import GoogMaps from "./googMaps";
 import { Loader } from "@googlemaps/js-api-loader";
 import ArcadeCard from "./ArcadeCard";
-import "../css/searchBar.scss";
 
 class SearchBar extends React.Component {
   constructor(props) {
