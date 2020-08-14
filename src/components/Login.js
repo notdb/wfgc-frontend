@@ -45,7 +45,7 @@ class Login extends React.Component {
     return (
       <div className="Login">
         <section className="registrationCard">
-          <p>Register Here</p>
+          <p>I don't have an account</p>
           <form onSubmit={this.regStart} className="registrationForm">
             <input
               type="text"
@@ -53,6 +53,7 @@ class Login extends React.Component {
               value={this.state.registration.username1}
               onChange={this.handleChanges}
               className="form"
+              placeholder="username"
             />
             <input
               type="password"
@@ -60,8 +61,9 @@ class Login extends React.Component {
               value={this.state.registration.password1}
               onChange={this.handleChanges}
               className="form2"
+              placeholder="password"
             />
-            <button className="registrationButton">Registration</button>
+            <button className="registrationButton">Register</button>
           </form>
         </section>
         <section className="loginCard">
@@ -73,6 +75,7 @@ class Login extends React.Component {
               value={this.state.credentials.username}
               onChange={this.handleChanges}
               className="form"
+              placeholder="username"
             />
             <input
               type="password"
@@ -80,6 +83,7 @@ class Login extends React.Component {
               value={this.state.credentials.password}
               onChange={this.handleChanges}
               className="form2"
+              placeholder="password"
             />
             <button className="loginButton">Login</button>
           </form>

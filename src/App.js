@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import "./css/searchBar.scss";
+import "./css/Login.scss";
 import {
   BrowserRouter as Router,
   Route,
