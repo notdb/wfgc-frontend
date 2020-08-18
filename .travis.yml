@@ -1,0 +1,40 @@
+language: node_js
+os:
+- linux
+node_js:
+- 10.8
+dist: xenial
+addons:
+  apt:
+    packages:
+    - libgconf-2-4
+  chrome: stable
+env:
+  matrix:
+  - HOST=localhost PORT=4550
+  global:
+    secure: SRSLaltHMgviVfGia6iv0Y1BxMjXykdo9QyC4LVerCaN2Fymptnn430Xg1mDXtsIiTr5YETgu/82wKHN+KEOQBuQckP9XSwpinV12WDzomn/PYI0T7kqbuL5B3w/wFzyQQa5YxsLheiRHFCDKJLNYXvEPZ2vncz3Ttq8U53aAbHDf9jSTTEkqlgwtagG737tlGEFyexuXf2ROU0swM1d2VUFhschrNlfU8tguKeh05gKsLBNI6zIjc/56I+P6wk9cHjQPoGvbn+n9JI2vMLL9HeFVytpUKu3roagQ03yOUcOfdz3VFo+R2ny4YtUVcnP9T59MRIsuZSiGrDdvJDF0C5/OYWAB0HP96KRkpjhnWA7shYws3RHrzTCG/QN/W+vZG6xxSyBWUozEavGZ2ep14iUtx8mlD4F1xeRkchNYlcwv0WvKQ2aScTYvycfhw7slIZdrSvKeT3V0WGwKRVbc+Kq8suAigQj56Gu5aqKmrDShj0C/+eFnWTjvlGPl7Mz1YEsCikPM38F9xc198PVF1HGm5N9AAahrA81hXDIr+XcKJ4X/464PRUMAI9KZjw/U0hEcL/8YmasZwMjyWSSZIuzzjt8aC/HOqcma68HyV636vLeCUshzBXyDxr2OH9AaW5euEuTW6Q0GNw//GWmDbzkBbs399sPIZTNYpArmbA=
+services:
+- xvfb
+before_install:
+- google-chrome-stable --headless --disable-gpu
+branches:
+  only:
+  - gh-pages
+  - "/.*/"
+cache:
+  directories:
+  - "~/.npm"
+  - "~/.cache"
+  override:
+  - npm ci
+  - npm run cy:verify
+  - npm run cy:info
+install:
+- npm ci
+defaults:
+  script:
+  - "$(npm bin)/print-env TRAVIS"
+  - npm run start:ci &
+  - npm run cy:run
+  - kill $(jobs -p) || true

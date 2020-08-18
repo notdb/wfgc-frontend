@@ -1,0 +1,71 @@
+.Login {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.registrationCard {
+    background: lightyellow;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+    width: 24%;
+    .form {
+	margin: .5em 0;
+	border-radius: .2em;
+	border: none;
+	height: 2.5em;
+	width: 81%;
+    }
+    ::placeholder {
+	text-align: center;
+    }
+    .form2 {
+	margin: .5em 0;
+	border-radius: .2em;
+	border: none;
+	height: 2.5em;
+	width: 81%;
+    }
+    button {
+	border: none;
+	text-decoration: none;
+	height: 2.5em;
+	margin: .5em 0;
+	width: 81%;
+    }
+}
+
+.loginCard {
+    background: lightyellow;
+    display:flex;
+    flex-direction: column;
+    padding-bottom: 1em;
+    width: 20%;
+    ::placeholder {
+	text-align: center;
+    }
+    .form {
+	margin: .5em 0;
+	border-radius: .2em;
+	border: none;
+	height: 2.5em;
+	width: 81%;
+    }
+    .form2 {
+	margin: .5em 0;
+	border-radius: .2em;
+	border: none;
+	height: 2.5em;
+	width: 81%;
+    }
+    button {
+	border: none;
+	text-decoration: none;
+	height: 2.5em;
+	margin: .5em 0;
+	width: 81%;
+    }
+}
