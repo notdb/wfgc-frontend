@@ -40,7 +40,6 @@ class App extends React.Component {
     window.document.body.appendChild(script);
     */
   }
-
   testFunction = () => {};
   render() {
     this.testFunction();
