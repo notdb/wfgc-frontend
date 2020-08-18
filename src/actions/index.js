@@ -8,7 +8,7 @@ export const FETCHING_ARCADES_ERROR = "FETCHING_ARCADES_ERROR";
 export const arcadesFetcher = () => dispatch => {
   dispatch({ type: FETCHING_ARCADES_START });
   axios
-    .get("http://localhost:5000/api/arcades/")
+    .get("https://wfgc-backend.herokuapp.com/api/arcades/")
     .then(res => {
       dispatch({ type: FETCHING_ARCADES_SUCCESS, payload: res.data });
     })
@@ -24,7 +24,7 @@ export const LOGIN_ERROR = "LOGIN_ERROR";
 export const admin = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios
-    .post("http://localhost:5000/api/auth/login", creds)
+    .post("https://wfgc-backend.herokuapp.com/api/auth/login", creds)
     .then(res => {
       console.log(res.data.token + "aaa");
       localStorage.setItem("token", res.data.token);
@@ -40,7 +40,7 @@ export const REG_ERROR = "REG_ERROR";
 export const regStart = creds => dispatch => {
   dispatch({ type: REG_START });
   return axios
-    .post("http://localhost:5000/api/auth/register", creds)
+    .post("https://wfgc-backend.herokuapp.com/api/auth/register", creds)
     .then(res => {
       console.log(res.data.token + "bbb");
       dispatch({ type: REG_SUCCESS, payload: res.data.token });
