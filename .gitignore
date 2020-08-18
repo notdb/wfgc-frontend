@@ -7,7 +7,7 @@
 todo.org
 /cypress/integration/examples/
 /cypress/videos/
-.idea
+/.idea
 # testing
 /coverage
 
