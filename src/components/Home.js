@@ -9,10 +9,12 @@ import {
   Link,
   NavLink
 } from "react-router-dom";
+import Gallery from "./BigCaro";
 
 function Home() {
   return (
     <div className="Home">
+      <Gallery />
       <section className="bodyThing">
         <SearchBar className="two" />
         <ListOfArcades className="one" />

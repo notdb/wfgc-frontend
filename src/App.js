@@ -16,6 +16,7 @@ import Login from "./components/Login";
 import SearchBar, { reConnect } from "./components/searchBar";
 import GoogMaps from "./components/googMaps";
 import Home from "./components/Home";
+import Gallery from "./components/BigCaro";
 
 class App extends React.Component {
   constructor() {
@@ -55,6 +56,7 @@ class App extends React.Component {
           <Route path="/login" component={Login} />
           <Route exact path="/" component={Home} />
           <footer />
+
           {/*
           <section className="bodyThing">
             <ListOfArcades className="one" />

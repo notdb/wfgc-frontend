@@ -63,7 +63,7 @@ header ul a {
 
 .arcades-list {
     width: 21%;
-    padding-top: 1em;
+    padding-top: .75em;
 }
 
 .two {
@@ -77,11 +77,11 @@ header ul a {
     //align-items: center;
     justify-content: space-evenly;
     width: 60%;
-    margin-top: 7em;
+    margin-top: .75em;
 }
 
 .searchResults {
-    padding: .55em;
+   
     width: 24.70%;
     
 }
