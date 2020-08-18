@@ -15,7 +15,7 @@ describe("Visits homepage", () => {
       cy.get(".arcades-list").contains("List of top Arcades:");
     });
     it("Login component renders", () => {
-      cy.get("header").contains("Home");
+      cy.get("header").contains("Where's FGC");
       cy.get("header").contains("Login");
     });
   });
