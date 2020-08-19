@@ -26,7 +26,7 @@ export const admin = creds => dispatch => {
   return axios
     .post("https://wfgc-backend.herokuapp.com/api/auth/login", creds)
     .then(res => {
-      console.log(res.data.token + "aaa");
+      //console.log(res.data.token + "aaa");
       localStorage.setItem("token", res.data.token);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.token });
     })
@@ -42,7 +42,7 @@ export const regStart = creds => dispatch => {
   return axios
     .post("https://wfgc-backend.herokuapp.com/api/auth/register", creds)
     .then(res => {
-      console.log(res.data.token + "bbb");
+      //console.log(res.data.token + "bbb");
       dispatch({ type: REG_SUCCESS, payload: res.data.token });
     })
     .catch(err => console.log(err));

@@ -30,7 +30,7 @@ class ListOfArcades extends React.Component {
     }
   }
   render() {
-    console.log(this.state);
+    //console.log(this.state);
     return (
       <div className="arcades-list">
         List of top Arcades:
@@ -47,7 +47,7 @@ class ListOfArcades extends React.Component {
         ))}
 	 */}
         {this.state.arcad.map(arcade => (
-          <ArcadeCard arcade={arcade} />
+          <ArcadeCard arcade={arcade} key={arcade.id} />
         ))}
       </div>
     );

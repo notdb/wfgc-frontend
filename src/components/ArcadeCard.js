@@ -1,7 +1,7 @@
 import React from "react";
 
 function ArcadeCard(props) {
-  console.log(props.arcade.id);
+  //console.log(props.arcade.id);
   return (
     <div key={props.arcade.id} className="arcadeCard">
       <p>{props.arcade.arcadename}</p>

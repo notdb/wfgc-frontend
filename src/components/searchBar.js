@@ -40,7 +40,7 @@ class SearchBar extends React.Component {
       });
     }
     */
-    console.log(this.state);
+    //console.log(this.state);
   }
 
   dmTest = () => {
@@ -48,7 +48,7 @@ class SearchBar extends React.Component {
 
     let cb = (response, status) => {
       if (status == "OK") {
-        console.log(response);
+        //console.log(response);
         this.setState({
           ...this.state,
           bigResponse: response
@@ -70,9 +70,9 @@ class SearchBar extends React.Component {
       lat: arc.lat,
       lng: arc.long
     }));
-    console.log(newDistances);
+    //console.log(newDistances);
     /* { lat: 33.73, lng: -117.87 } */
-    console.log(this.state.latLng);
+    //console.log(this.state.latLng);
     distanceThang.getDistanceMatrix(
       {
         origins: [this.state.latLng],
@@ -87,7 +87,7 @@ class SearchBar extends React.Component {
     const geoCoder = new window.google.maps.Geocoder();
     /*
     let weirdVar;
-    let testet;
+    le testet;
 */
     let cb = (testy, bigStatus) => {
       if (bigStatus == "OK") {
@@ -131,8 +131,8 @@ class SearchBar extends React.Component {
       const geoCoder = new window.google.maps.Geocoder();
       let cb = (testy, bigStatus) => {
         if (bigStatus == "OK") {
-          console.log(testy);
-          console.log(process.env.REACT_APP_HELLO);
+          //console.log(testy);
+          //console.log(process.env.REACT_APP_HELLO);
           this.setState({
             ...this.state,
             latLng: {
@@ -191,22 +191,22 @@ class SearchBar extends React.Component {
       });
     }
 */
-    console.log(this.state.zipcode);
-    console.log("FFFFFF");
-    console.log(this.state);
+    //console.log(this.state.zipcode);
+    //console.log("FFFFFF");
+    // console.log(this.state);
     this.setState({ ...this.state, zipcode: "" });
   };
 
   passIt = poo3 => {
-    console.log("GOOG MAPS", poo3);
-    console.log(this.state.latLng);
+    //console.log("GOOG MAPS", poo3);
+    //console.log(this.state.latLng);
     if (this.state.latLng) {
-      console.log("TEST", this.state);
+      //console.log("TEST", this.state);
       if (this.state.latLng.lat !== poo3.lat) {
         this.setState({ ...this.state, latLng: poo3 });
       }
     } else {
-      console.log("poo");
+      //console.log("poo");
       this.setState({ ...this.state, latLng: poo3 });
     }
     return poo3;
