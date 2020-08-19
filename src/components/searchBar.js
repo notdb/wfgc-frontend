@@ -216,7 +216,7 @@ class SearchBar extends React.Component {
     return (
       <div className="searchBar">
         <div className="searchForm">
-          Enter Your Zip Code to display arcades near you:
+          <p>Enter Your Zip Code to display arcades near you:</p>
           <form onSubmit={event => this.fooPoo(event)}>
             <input
               type="text"
@@ -229,7 +229,9 @@ class SearchBar extends React.Component {
           </form>
         </div>
         <div className="searchResults">
-          <div>Your nearest weeklies:</div>
+          <div>
+            <p>Your nearest weeklies:</p>
+          </div>
           {this.state.filteredArray.map(arcade => (
             <div key={arcade.id} className="mapResult">
               <p>{arcade.arcadename}</p>

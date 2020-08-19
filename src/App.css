@@ -38,23 +38,6 @@ body {
   }
 }
 
-header ul {
-    height: 45px;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 0px;
-}
-
-header {
-    background: #F4FAD2;
-    border-radius: 3px;
-}
-
-header ul a {
-    margin: 0 1em;
-}
-
 .bodyThing {
     display: flex;
     margin: 0 auto;

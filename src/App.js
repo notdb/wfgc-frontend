@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import "./css/searchBar.scss";
 import "./css/Login.scss";
+import "./css/Header.scss";
 import {
   BrowserRouter as Router,
   Route,

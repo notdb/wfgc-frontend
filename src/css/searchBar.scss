@@ -1,9 +1,19 @@
 .searchForm {
     width: 25%;
     form {
+		    ::placeholder {
+		text-align: center;
+		font-size: 1.25em;
+	    }
+	input {
+	    height: 3.5em;
+	    margin-right: .5em;
+
+	}
 	button {
 	    text-decoration: none;
 	    border: none;
+	    height: 2.5em;
 	}
     }
 }
