@@ -132,6 +132,7 @@ class SearchBar extends React.Component {
       let cb = (testy, bigStatus) => {
         if (bigStatus == "OK") {
           console.log(testy);
+          console.log(process.env.REACT_APP_HELLO);
           this.setState({
             ...this.state,
             latLng: {
