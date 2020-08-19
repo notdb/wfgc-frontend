@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { arcadesFetcher } from "../actions";
-import GoogMaps from "./googMaps";
+//import GoogMaps from "./googMaps";
 import { Loader } from "@googlemaps/js-api-loader";
 import ArcadeCard from "./ArcadeCard";
 

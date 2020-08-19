@@ -14,7 +14,7 @@ import { arcadesFetcher } from "./actions";
 import ListOfArcades from "./components/listOfArcades";
 import Login from "./components/Login";
 import SearchBar, { reConnect } from "./components/searchBar";
-import GoogMaps from "./components/googMaps";
+//import GoogMaps from "./components/googMaps";
 import Home from "./components/Home";
 import Gallery from "./components/BigCaro";
 
