@@ -26,7 +26,7 @@ class App extends React.Component {
 
   componentDidMount() {
     /*
-    this.props.arcadesFetcher();
+    this.props.arcadesFetche();
     this.setState({
       arcades: this.props.arcades
     });
