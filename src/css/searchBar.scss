@@ -1,9 +1,21 @@
 .searchForm {
     width: 25%;
     form {
+	input {
+	margin: .5em 0;
+	border-radius: .2em;
+	border: none;
+	height: 2.5em;
+
+	}
 	button {
 	    text-decoration: none;
 	    border: none;
+	    margin-left: 1em;
+	    height: 2.5em;
+	}
+	::placeholder {
+	    text-align: center;
 	}
     }
 }
